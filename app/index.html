@@ -10,7 +10,15 @@
   </head>
   <body ng-app="BucketListApp">
     <div class="content">
+    <!-- If you're using the AuthController in your nav logic and that's all encapsulated in
+      this header I would start by putting the whole header into a directive and then handling
+      Auth based stuff from the controller in the directive itself. When you set a controller
+      out here in your main view like this and then refer to it by a name you set here in your
+      directive template it breaks encapsulation and could be more confusing in the long run. -->
       <header ng-controller="AuthController as ac">
+        <!-- You can also set classes based on an evaluated expression (see: ng-class) I realize
+        you're doing this with media queries so that may be a little complicated but if it gives
+        you the chance to better simplify and encapsulate your logic it may be worth figuring out. -->
         <nav class="full-nav">
           <ul>
             <li><a href="#/"><button type="submit">Home</button></a></li>
